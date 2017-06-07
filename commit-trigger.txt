@@ -1,2 +1,2 @@
-Commits to trigger Standalone CI Builds ..
+Commits to trigger Travis CI Builds ..
 -------------------------------------------
