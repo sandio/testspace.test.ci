@@ -16,4 +16,4 @@ test_script:
   - set > printenv.txt 
   
 after_test:
-  - testspace results.xml printenv.txt "standalone#appveyor.$APPVEYOR_BUILD_NUMBER"
+  - testspace results.xml printenv.txt "standalone#appveyor.%APPVEYOR_BUILD_NUMBER%"
