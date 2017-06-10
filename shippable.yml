@@ -1,15 +1,19 @@
 language: c
 
+env:
+ global:
+  - secure: lPCLjcDzFmj4YLbgerUlE4y1HTzrcZjJdA4opnGM4KUwsfmXIS6f7sPE4nqb9klsSk3594jQHpSdyUom6l+N+oxiE5GtgeKwN1SDCeH5T1Rldh62XtjXRGJbFE10Ducdk1Z/P4VQnqHTv0VPNnwExr+EJFxqe32r63MJtdXaa7phLBPelHZ/aX3nOboNAYVrmKuZl+uk+7AiOVU9vGf78+clPliLT0AdzmU02t9q+qvvG4VEwv6Fz+lJsPlt+d1uVGHls6DDept2KybJisRAmzrEkFWbhdcWWGlRzFwLZHwMq1xHe4/VMqdumVMjnIGFlriGHP0cvkkvvkKGrFslGA==
+
 build:
   ci:
    - mkdir -p $HOME/bin
    - curl -s https://testspace-client.s3.amazonaws.com/testspace-linux-dev.tgz | tar -zxvf- -C $HOME/bin
-   - testspace config url http://21a2b85afb9b6370c8c15144cad577fa72cf7b78:@s2.stridespace.com/s2technologies:testspace.test.ci
+   - testspace config url http://$TS_TOKEN:@s2.stridespace.com/s2technologies:testspace.test.ci
    - testspace -v
    - printenv > printenv.txt
   
   on_success:
-   - testspace results.xml printenv.txt "standalone#shippable.$SHIPPABLE_BUILD_NUMBER"
+   - testspace results.xml printenv.txt "standalone#shippable.$SHIPPABLE_BUILD_NUMBER" --repo git
 
   on_failure:
-   - testspace results.xml printenv.txt "standalone#shippable.$SHIPPABLE_BUILD_NUMBER"
+   - testspace results.xml printenv.txt "standalone#shippable.$SHIPPABLE_BUILD_NUMBER" --repo git
