@@ -4,31 +4,33 @@
 
 ### Testspace CI testings
 
-This repo is used to run tests leveraging supported CIs. Will be using pre-canned `results.xml`:
+The objectives are to validate:
+  * CI specific testing for Standalone Projects
+  * CI specific testing fro Connected Projects
+  * CI support for `Matrix` (multiple jobs)
+  * General concurrency / load testing
+
+***
+
+### Master
+
+This branch will be used to generate the pre-canned content used by the other branches.
+
+Starting with pre-canned `results.xml`:
 
 <pre>
 sudo pip install pytest
 py.test generate-results.py --junitxml=results.xml -v --tb=no
 </pre>
 
-Info to capture:
-  * trigger repo
-  * adding to `deploymnet` in Circle Testspace testings
-
-To-Do:
-  * metric for uploading time
-  * metric for logs
-
-***
-
-### Master
-
-TBD
+The Testspace branch(space) content will be pushed from a private repo used to trigger the `other` branches to execute their specific CI tests.
+The [trigger repo](https://github.com/s2technologies/testspace.test.ci.trigger) is a `private` repo. 
 
 ### Standalone
 
-TBD
+This branch is used by ALL CIs to push content.
 
-### Travis
+### Other
 
-TBD
+All of the other branches, named based on what CI runs, are used to test Matrix/Concurrency specific to the CI. 
+
