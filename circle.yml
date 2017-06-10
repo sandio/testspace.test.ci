@@ -19,9 +19,4 @@ test:
     - echo test override
     
   post:
-    - >
-      testspace ?start
-      for (( i=1; i<=20; i++))
-        testspace[JOB-$i]results.xml ?add
-      done
-      testspace ?finish
+    - ./incremental.sh 
