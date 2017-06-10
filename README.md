@@ -14,6 +14,9 @@ The objectives are to validate:
 
 ### Master
 
+The corresponding Testspace Project branch(space) `code churn` will represent the `Testspace` repo changes. 
+
+
 This branch will be used to generate the pre-canned content used by the other branches.
 
 Starting with pre-canned `results.xml`:
@@ -28,7 +31,7 @@ The [trigger repo](https://github.com/s2technologies/testspace.test.ci.trigger) 
 
 ### Standalone
 
-This branch is used by ALL CIs to push content.
+This branch is used by ALL CIs to push content. Requires CI Environment Variables (via UI) set to `S2_TOKEN=...`.
 
 ### Other
 
