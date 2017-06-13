@@ -38,4 +38,4 @@ script:
   - echo script
  
 after_script:
-  - testspace [$JOB]results.xml 
+  - testspace results.xml [ALL]results.xml [$JOB]results.xml 
