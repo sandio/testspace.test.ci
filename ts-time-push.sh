@@ -8,10 +8,10 @@ CONTENT_SIZE=$(stat -c  '%s' check-size.xml)
 
 NUM_FILES=$(ls -l result*.xml | grep -v ^d | wc -l )
 
-echo "TIMING STATS:" > timing.log
-echo "  Number of files: $NUM_FILES" >> timing.log
-echo "  Size of content(files X 3): $CONTENT_SIZE" >> timing.log
-echo "  $JOB Upload time in seconds, $TIME_DIFF" >> timing.log
+echo "TIMING STATS:" > timing-$JOB.log
+echo "  Number of files: $NUM_FILES" >> timing-$JOB.log
+echo "  Size of content(files X 3): $CONTENT_SIZE" >> timing-$JOB.log
+echo "  $JOB Upload time in seconds, $TIME_DIFF" >> timing-$JOB.log
 echo "$JOB Upload time, $TIME_DIFF" > timing.csv
 
-testspace [ALL]"timing.log{timing.csv:Tracking Time for $JOB}"
+testspace [ALL]"timing-$JOB.log{timing.csv:Tracking Time for $JOB}"
