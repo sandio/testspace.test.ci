@@ -34,7 +34,7 @@ build:
    - testspace config url http://s2.stridespace.com
 
   on_success:
-   - testspace [$JOB]results.xml 
+   - ./ts-time-push.sh 
    
   on_failure:
-   - testspace [$JOB]results.xml 
+   - ./ts-time-push.sh 
